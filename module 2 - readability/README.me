@@ -1,0 +1,38 @@
+Exercício 0: Legibilidade
+Implemente um programa que calcule o nível (representado a partir de uma série, como na escola) aproximado necessário para compreender algum texto, conforme a seguir.
+
+$ ./readability
+Texto: Parabéns! Hoje é seu dia. Você está indo para ótimos lugares! Você está com tudo!
+Grade 3
+Níveis de leitura
+De acordo com a Scholastic , “Charlotte's Web” de EB White está entre o nível de leitura da segunda e quarta séries, e “The Giver” de Lois Lowry está entre um nível de leitura da oitava série e um nível de leitura da décima segunda série. No entanto, o que significa um livro estar no “nível de leitura da quarta série”?
+
+Bem, em muitos casos, um especialista humano pode ler um livro e tomar uma decisão sobre a série para a qual acha que o livro é mais apropriado. Mas você também pode imaginar um algoritmo tentando descobrir qual é o nível de leitura de um texto.
+
+Então, que tipo de características são características de níveis de leitura mais altos? Bem, palavras mais longas provavelmente se correlacionam com níveis de leitura mais altos. Da mesma forma, frases mais longas provavelmente se correlacionam com níveis mais altos de leitura também. Vários “testes de legibilidade” foram desenvolvidos ao longo dos anos, para fornecer um processo estereotipado para calcular o nível de leitura de um texto.
+
+Um desses testes de legibilidade é o índice Coleman-Liau. O índice Coleman-Liau de um texto é projetado para mostrar qual nível escolar (EUA) é necessário para entender o texto. A fórmula é:
+
+índice = 0,0588 * L - 0,296 * S - 15,8
+Aqui, L é o número médio de letras por 100 palavras no texto e S é o número médio de sentenças por 100 palavras no texto.
+
+Vamos escrever um programa chamado readability que pega um texto e determina seu nível de leitura. Por exemplo, se o usuário digitar uma linha do Dr. Seuss:
+
+$ ./readability
+Texto: Congratulations! Today is your day. You're off to Great Places! You're off and away!
+Grade 3
+O texto que o usuário inseriu tem 65 letras, 4 sentenças e 14 palavras. 65 letras por 14 palavras é uma média de cerca de 464,29 letras por 100 palavras. E 4 sentenças por 14 palavras é uma média de cerca de 28,57 sentenças por 100 palavras. Conectados à fórmula Coleman-Liau e arredondados para o número inteiro mais próximo, obtemos uma resposta de 3: portanto, esta passagem está em um nível de leitura da terceira série.
+
+Vamos tentar outro:
+
+$ ./readability
+Text: Harry Potter was a highly unusual boy in many ways. For one thing, he hated the summer holidays more than any other time of year. For another, he really wanted to do his homework, but was forced to do it in secret, in the dead of the night. And he also happened to be a wizard.
+Grade 5
+Este texto contém 214 letras, 4 frases e 56 palavras. Isso resulta em cerca de 382,14 letras por 100 palavras e 7,14 frases por 100 palavras. Conectados à fórmula Coleman-Liau, chegamos ao nível de leitura da quinta série.
+
+À medida que o número médio de letras e palavras por frase aumenta, o índice de Coleman-Liau dá ao texto um nível de leitura mais alto. Se você pegasse este parágrafo, por exemplo, que tem palavras e sentenças mais longas do que qualquer um dos dois exemplos anteriores, a fórmula daria ao texto um nível de leitura de décimo primeiro ano.
+
+$ ./readability
+Text: As the average number of letters and words per sentence increases, the Coleman-Liau index gives the text a higher reading level. If you were to take this paragraph, for instance, which has longer words and sentences than either of the prior two examples, the formula would give the text an eleventh grade reading level.
+Grade 11
+Tente!
