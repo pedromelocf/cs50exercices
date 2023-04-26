@@ -25,19 +25,21 @@ int main (int argc, string argv[])
     int k = atoi(key);
     
     string plaintext = get_string("plaintext:");
-    int lenght = strlen(plaintext);
-    char ciphertext[lenght];
+    int length = strlen(plaintext);
+    char ciphertext[length + 1];
     for (int i = 0; i < strlen(plaintext); i++)
     {
         if (isalpha(plaintext[i]))
         {
             char caractere = isupper(plaintext[i]) ? 'A' : 'a' ;
-            ciphertext[i] = (caractere + k % 26) - caractere;
+            ciphertext[i] = (plaintext[i] - caractere + k ) % 26 + caractere;
         }
         else
         {
             ciphertext[i] = plaintext[i];
         }
     }
+    ciphertext[length] = '\0';
     printf("ciphertext:%s\n", ciphertext);
+    return 0;
 }    
