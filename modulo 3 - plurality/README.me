@@ -1,0 +1,60 @@
+Exercício 1: Plurality
+Implemente um programa que execute uma eleição de pluralidade, conforme a seguir.
+
+$ ./plurality Alice Bob Charlie
+Número de eleitores: 4
+Voto: Alice
+Voto: Bob
+Voto: Charlie
+Voto: Alice
+Alice
+Background
+As eleições acontecem em todas as formas e tamanhos. No Reino Unido, o primeiro-ministro é oficialmente nomeado pelo monarca, que geralmente escolhe o líder do partido político que obtém mais cadeiras na Câmara dos Comuns. Os Estados Unidos usam um processo de Colégio Eleitoral de várias etapas , no qual os cidadãos votam em como cada estado deve alocar os Eleitores que então elegem o Presidente.
+
+Talvez a maneira mais simples de realizar uma eleição, no entanto, seja por meio de um método comumente conhecido como “voto plural” (também conhecido como “primeiro a chegar” ou “o vencedor leva tudo”). Na votação por pluralidade, cada eleitor pode votar em um candidato. No final da eleição, o candidato que obtiver o maior número de votos é declarado vencedor da eleição.
+Especificações
+Complete a implementação de plurality.c de tal forma que o programa simule uma eleição de voto plural.
+
+Complete a função de vote.
+vote leva um único argumento, uma string chamada name , que representa o nome do candidato que foi votado.
+Se o name corresponder a um dos nomes dos candidatos na eleição, atualize o total de votos desse candidato para contabilizar a nova votação. A função de votação(vote) neste caso deve retornar true para indicar uma votação bem-sucedida.
+Se o name não corresponder ao nome de nenhum dos candidatos na eleição, nenhum total de votos deve mudar e a função de voto(vote) deve retornar false para indicar uma cédula inválida.
+Você pode presumir que dois candidatos não terão o mesmo nome.
+Conclua a função print_winner .
+A função deve imprimir o nome do candidato que recebeu mais votos na eleição e, em seguida, imprimir uma nova linha.
+É possível que a eleição termine em empate se vários candidatos tiverem, cada um, o número máximo de votos. Nesse caso, você deve imprimir os nomes de cada um dos candidatos vencedores, cada um em uma linha separada.
+Você não deve modificar nada mais em plurality.c além das implementações das funções vote e print_winner (e a inclusão de arquivos de cabeçalho adicionais, se desejar).
+
+Uso
+Seu programa deve se comportar de acordo com os exemplos abaixo.
+
+$ ./plurality Alice Bob
+Number of voters: 3
+Vote: Alice
+Vote: Bob
+Vote: Alice
+Alice
+$ ./plurality Alice Bob
+Number of voters: 3
+Vote: Alice
+Vote: Charlie
+Invalid vote.
+Vote: Alice
+Alice
+$ ./plurality Alice Bob Charlie
+Number of voters: 5
+Vote: Alice
+Vote: Charlie
+Vote: Bob
+Vote: Bob
+Vote: Alice
+Alice
+Bob
+Como testar o seu código?
+Certifique-se de testar seu código para certificar-se de que é capaz de lidar com as seguintes situações:
+
+Uma eleição com qualquer número de candidatos (até o MAX de 9);
+Votar em um candidato pelo nome;
+Votos inválidos para candidatos que não estão na cédula;
+Imprimir o vencedor da eleição se houver apenas um;
+Imprimir o vencedor da eleição se houver vários vencedores;
